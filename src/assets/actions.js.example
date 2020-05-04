@@ -1,0 +1,9 @@
+export default [
+  {
+    name: 'Example',
+    shortcut: 'ex',
+    homepage: 'http://www.example.com',
+    icon: 'example',
+    search: 'http://www.example.com/search?q=%s'
+  }
+]
