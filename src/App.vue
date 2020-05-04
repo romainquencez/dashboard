@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <section class="section has-background-white-ter">
+    <div class="columns">
+      <div class="column is-2"></div>
+      <div class="column is-8">
+        <search></search>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Search from '@/components/Search.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: { Search }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.small-margin-bottom {
+  margin-bottom: .75rem;
+}
+.section {
+  min-height: 100vh;
 }
 </style>
