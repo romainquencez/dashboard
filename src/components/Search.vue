@@ -73,17 +73,20 @@ export default {
       let action
       if (this.shortcut) {
         action = ACTIONS.find(action => action.shortcut == this.shortcut)
-      } else {
-        action = ACTIONS.find(action => action.default)
+        action = { ...action }
+        // format name and url if keyword exist
+        if (this.keyword) {
+          action.name = `${action.name} "${this.keyword}"`
+          action.url = action.search.replace('%s', this.keyword)
+        } else {
+          action.url = action.homepage
+        }
+        return action
       }
+      // no shortcut, regular search
+      action = ACTIONS.find(action => action.default)
       action = { ...action }
-      // format name and url if keyword exist
-      if (this.keyword) {
-        action.name = `${action.name} "${this.keyword}"`
-        action.url = action.search.replace('%s', this.keyword)
-      } else {
-        action.url = action.homepage
-      }
+      action.url = action.search.replace('%s', this.query)
       return action
     },
     results () {
