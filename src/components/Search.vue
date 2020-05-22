@@ -6,16 +6,22 @@
         ref="input"
         size="is-large"
         :loading="isLoading"
+        :class="{'is-dark': isDark}"
       ></b-input>
     </form>
     <div
       v-if="results.length"
-      class="results has-background-white"
+      class="results"
+      :class="{
+        'is-dark has-background-black-ter': isDark,
+        'is-light has-background-white': !isDark
+      }"
     >
       <result
         v-for="(result, index) in results"
         :key="index"
         :result="result"
+        :is-dark="isDark"
       ></result>
     </div>
   </div>
@@ -28,6 +34,12 @@ import ACTIONS from '@/assets/actions.js'
 export default {
   name: 'Search',
   components: { Result },
+  props: {
+    isDark: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
       isLoading: false,
@@ -127,20 +139,39 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .results {
-  border: 1px solid rgb(219, 219, 219);
+  border-width: 1px;
+  border-style: solid;
   border-top: none;
   border-radius: 0 0  4px 4px;
-  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
   max-height: 75vh;
   overflow: auto;
 }
+.results.is-light {
+  border-color: rgb(219, 219, 219);
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+}
+.results.is-dark {
+  border-color: rgb(19, 19, 19);
+  box-shadow: inset 0 1px 2px rgba(210, 210, 210, 0.1);
+}
 .result {
   padding: .5rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom-width: 1px;
+  border-bottom-style: solid; ;
 }
-.result:last-child {
-  border-radius: 1rem;
+.is-light .result {
+  border-bottom-color: #eee;
+}
+.is-dark .result {
+  border-bottom-color: #333;
+}
+
+/* search input */
+.is-dark .input {
+  background: rgb(36, 36, 36);
+  color: whitesmoke;
+  border-color: #333;
 }
 </style>

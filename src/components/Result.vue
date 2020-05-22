@@ -10,10 +10,12 @@
         </figure>
       </div>
       <div class="media-content">
-        <div class="has-text-weight-bold">
+        <div
+          class="has-text-weight-bold"
+          :class="`has-text-${isDark ? 'white' : 'black'}-ter`">
           {{ result.name }}
         </div>
-        <div class="has-text-grey">
+        <div :class="`has-text-${isDark ? 'grey-light' : 'silver'}`">
           {{ result.url }}
         </div>
       </div>
@@ -27,6 +29,10 @@ export default {
   props: {
     result: {
       type: Object,
+      required: true
+    },
+    isDark: {
+      type: Boolean,
       required: true
     }
   },
