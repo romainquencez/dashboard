@@ -34,3 +34,7 @@ export default {
   min-height: 100vh;
 }
 </style>
+
+<style lang="scss">
+@import "@/scss/buefy";
+</style>

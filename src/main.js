@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import { Input } from 'buefy'
-import 'buefy/dist/buefy.css'
 import App from './App.vue'
 
 Vue.use(Input)
