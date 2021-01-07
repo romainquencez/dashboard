@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import Buefy from 'buefy'
+import { Input } from 'buefy'
 import 'buefy/dist/buefy.css'
 import App from './App.vue'
 
-Vue.use(Buefy)
+Vue.use(Input)
 
 Vue.config.productionTip = false
 
