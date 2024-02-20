@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "buefy": "0.9.4",
-    "core-js": "3.8.2",
+    "core-js": "3.36.0",
     "node-sass": "^9.0.0",
     "sass-loader": "^14.1.1",
     "vue": "3.4.19"
